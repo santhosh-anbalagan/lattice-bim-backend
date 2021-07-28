@@ -1,1 +1,1 @@
-web: java -jar --server.port=$PORT target/bim-backend-0.0.1-SNAPSHOT.jar
+web: java -jar -Dserver.port=$PORT target/bim-backend-0.0.1-SNAPSHOT.jar
