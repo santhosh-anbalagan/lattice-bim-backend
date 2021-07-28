@@ -27,6 +27,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.autodesk/forge-java-sdk -->
+		<dependency>
+			<groupId>com.autodesk</groupId>
+			<artifactId>forge-java-sdk</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
