@@ -23,6 +23,12 @@ public class SendgridController {
 
     private final Logger LOG = LoggerFactory.getLogger(SendgridController.class);
 
+    /**
+     *
+     * @param url
+     * @param cc
+     * @return
+     */
     @GetMapping(value = "magic")
     public ResponseEntity getMail(@RequestParam(value = "url") String url,@RequestParam(value = "cc", required = false) String cc) {
         SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
