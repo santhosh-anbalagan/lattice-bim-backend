@@ -6,6 +6,7 @@ import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,14 @@ import java.util.Objects;
 @RequestMapping(value = "/mail")
 public class SendgridController {
 
+    @Value("${sendgrid.api.key}")
+    private String api;
+
     private final Logger LOG = LoggerFactory.getLogger(SendgridController.class);
 
     @GetMapping(value = "magic")
     public ResponseEntity getMail(@RequestParam(value = "url") String url,@RequestParam(value = "cc", required = false) String cc) {
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid(api);
         Email to = new Email("santhosh@lattice.site");
         Email from = new Email("santhosh@lattice.site");
         Mail mail = new Mail();
