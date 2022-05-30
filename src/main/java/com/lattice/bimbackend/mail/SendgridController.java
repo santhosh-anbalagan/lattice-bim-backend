@@ -21,14 +21,11 @@ import java.util.Objects;
 @RequestMapping(value = "/mail")
 public class SendgridController {
 
-    @Value("${sendgrid.api.key}")
-    private String api;
-
     private final Logger LOG = LoggerFactory.getLogger(SendgridController.class);
 
     @GetMapping(value = "magic")
     public ResponseEntity getMail(@RequestParam(value = "url") String url,@RequestParam(value = "cc", required = false) String cc) {
-        SendGrid sg = new SendGrid(api);
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
         Email to = new Email("santhosh@lattice.site");
         Email from = new Email("santhosh@lattice.site");
         Mail mail = new Mail();
