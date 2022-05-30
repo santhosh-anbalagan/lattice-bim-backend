@@ -37,7 +37,7 @@ public class SendgridController {
         mail.setTemplateId("d-bc95c34997ea4c75a29dc6bf3bad4eaf");
         Personalization personalization = new Personalization();
 //        personalization.setFrom(new Email("santhosh@lattice.site"));
-        personalization.addTo(new Email("sankha.deep@lattice.site"));
+        personalization.addTo(new Email("sankha@lattice.site"));
         try{
             if(!Objects.isNull(cc))
                 personalization.addCc(new Email(cc));
